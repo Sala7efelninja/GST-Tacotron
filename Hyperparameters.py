@@ -3,7 +3,7 @@ import torch
 
 class Hyperparameters():
 
-    data = '/d/blizzard/lessac_cathy5/wavn'
+    data = '/content/drive/My Drive/dataset/ravdess'
     #data = '../../../data/data_thchs30'
 
     max_Ty = max_iter = 200

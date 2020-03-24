@@ -24,17 +24,17 @@ device = torch.device(hp.device)
 def train(log_dir, dataset_size, start_epoch=0):
     # log directory
     if not os.path.exists(log_dir):
-        os.mkdir(log_dir)
+        os.makedirs(log_dir)
     if not os.path.exists(os.path.join(log_dir, 'state')):
-        os.mkdir(os.path.join(log_dir, 'state'))
+        os.makedirs(os.path.join(log_dir, 'state'))
     if not os.path.exists(os.path.join(log_dir, 'wav')):
-        os.mkdir(os.path.join(log_dir, 'wav'))
+        os.makedirs(os.path.join(log_dir, 'wav'))
     if not os.path.exists(os.path.join(log_dir, 'state_opt')):
-        os.mkdir(os.path.join(log_dir, 'state_opt'))
+        os.makedirs(os.path.join(log_dir, 'state_opt'))
     if not os.path.exists(os.path.join(log_dir, 'attn')):
-        os.mkdir(os.path.join(log_dir, 'attn'))
+        os.makedirs(os.path.join(log_dir, 'attn'))
     if not os.path.exists(os.path.join(log_dir, 'test_wav')):
-        os.mkdir(os.path.join(log_dir, 'test_wav'))
+        os.makedirs(os.path.join(log_dir, 'test_wav'))
 
     f = open(os.path.join(log_dir, 'log{}.txt'.format(start_epoch)), 'w')
 

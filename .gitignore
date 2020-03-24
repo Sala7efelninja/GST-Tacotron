@@ -1,6 +1,14 @@
-
+LJSpeech-1.1/
+drive/
+output/
+*.pt
+*.xip
+*.zip
+waveglow_256channels_ljs_v3.pt
+nvidia_tacotron2pyt_fp32_20190427
 *.pyc
-
+.config/
+log/
 *.sublime-project
 
 *.sublime-workspace

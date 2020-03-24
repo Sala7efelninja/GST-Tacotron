@@ -196,7 +196,6 @@ def get_LJ_data(data_dir, r):
 
 def get_ravdess(data_dir, r):
     path = os.path.join(data_dir, 'ravdess.csv')
-    data_dir = os.path.join(data_dir, 'AllActors')
     wav_paths = []
     texts = []
     with open(path, 'r') as f:
