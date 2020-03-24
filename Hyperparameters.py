@@ -3,7 +3,7 @@ import torch
 
 class Hyperparameters():
 
-    data = '/content/drive/My Drive/dataset/ravdess'
+    data = './ravdess'
     #data = '../../../data/data_thchs30'
 
     max_Ty = max_iter = 200
@@ -14,11 +14,11 @@ class Hyperparameters():
 
     lr = 0.001
     batch_size = 16   # !!!
-    num_epochs = 100  # !!!
+    num_epochs = 101  # !!!
     eval_size = 1
-    save_per_epoch = 1
+    save_per_epoch = 20
     log_per_batch = 20
-    log_dir = './log/train{}'
+    log_dir = '/content/drive/My Drive/dataset/log/train{}'
 
     model_path = None
     optimizer_path = None
@@ -26,7 +26,7 @@ class Hyperparameters():
     # eval_text = '''er2 dui4 lou2 shi4 cheng2 jiao1 yi4 zhi4 zuo4 yong4 zui4 da4 de5 xian4 gou4'''
     #eval_text = '''chua1n pu3 zo3ng to3ng shuo1 ta1 ce2ng ji1ng xia4ng me3i guo2 re2n mi2n che2ng nuo4 jia1ng yo3u yi1 ge4 me3i ha3o de she4ng da4n li3 wu4  sui2 zhe zhe4 yi1 jia3n shui4 fa3 a4n to1ng guo4  ta1 ye3 dui4 xia4n le zhe4 yi1 che2ng nuo4'''
     eval_text = 'it took me a long time to develop a brain . now that i have it i\'m not going to be silent !'
-    ref_wav = '/d/blizzard/lessac_cathy5/wavn/PP_309_093.wav'
+    ref_wav = './ravdess/03-01-08-02-01-02-10.wav'
 
     lr_step = [500000, 1000000, 2000000]
 
