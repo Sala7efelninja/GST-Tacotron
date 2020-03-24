@@ -21,7 +21,7 @@ class SpeechDataset(Dataset):
         # fpaths, texts = get_data(hp.data, r)  # thchs30
         # fpaths, texts = get_keda_data(hp.data, r)  # keda api
         # fpaths, texts = get_thchs30_data(hp.data, r)
-        fpaths, texts = get_blizzard_data(hp.data, r)
+        fpaths, texts = get_ravdess(hp.data, r)
         print('Finish loading data')
         self.fpaths = fpaths
         self.texts = texts
@@ -194,6 +194,26 @@ def get_LJ_data(data_dir, r):
 
     return wav_paths[r], texts[r]
 
+def get_ravdess(data_dir, r):
+    path = os.path.join(data_dir, 'ravdess.csv')
+    data_dir = os.path.join(data_dir, 'AllActors')
+    wav_paths = []
+    texts = []
+    with open(path, 'r') as f:
+        for line in f.readlines():
+            items = line.strip().split('|')
+            wav_paths.append(os.path.join(data_dir, items[0] ))
+            text = items[1]
+            text = text_normalize(text) + 'E'
+            text = [hp.char2idx[c] for c in text]
+            text = torch.Tensor(text).type(torch.LongTensor)
+            texts.append(text)
+
+    # for wav in wav_paths[-20:]:
+    #     print(wav)
+
+    return wav_paths[r], texts[r]
+
 def get_blizzard_data(data_dir, r):
     file_list = './filelists/bliz13_audio_text_train_filelist.txt'
 
@@ -238,7 +258,7 @@ def get_eval_data(text, wav_path):
 
 
 if __name__ == '__main__':
-    dataset = LJDataset()
+    dataset = SpeechDataset()
     loader = DataLoader(dataset=dataset, batch_size=8, collate_fn=collate_fn)
 
     for batch in loader:
