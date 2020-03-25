@@ -44,7 +44,7 @@ class Highway(nn.Module):
         H = self.linear1(inputs)
         H = F.relu(H)
         T = self.linear2(inputs)
-        T = F.sigmoid(T)
+        T = torch.sigmoid(T)
 
         out = H * T + inputs * (1.0 - T)
 
@@ -149,7 +149,7 @@ class AttentionRNN(nn.Module):
         outputs, hidden = self.gru(inputs, prev_hidden)  # outputs: [N, T_y, E]  hidden: [1, N, E]
         w = self.W(outputs).unsqueeze(2).expand(-1, -1, T_x, -1)  # [N, T_y, T_x, E]
         u = self.U(memory).unsqueeze(1).expand(-1, T_y, -1, -1)  # [N, T_y, T_x, E]
-        attn_weights = self.v(F.tanh(w + u).view(-1, hp.E)).view(-1, T_y, T_x)
+        attn_weights = self.v(torch.tanh(w + u).view(-1, hp.E)).view(-1, T_y, T_x)
         attn_weights = F.softmax(attn_weights, 2)
 
         return attn_weights, outputs, hidden
