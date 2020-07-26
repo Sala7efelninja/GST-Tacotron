@@ -16,7 +16,7 @@ DATADIR="ravdess"
 
 mkdir -p "$DATADIR/"
 
-cp -v "./drive/My Drive/dataset/$DATADIR/ravdess.csv" "$DATADIR/ravdess.csv" &
+cp -v "./drive/My Drive/dataset/$DATADIR/ravdess.csv" "$DATADIR/ravdess.csv" 
 
 tmp="$DATADIR/ravdess.csv"
 

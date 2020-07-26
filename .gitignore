@@ -9,9 +9,8 @@ nvidia_tacotron2pyt_fp32_20190427
 *.pyc
 .config/
 log/
-log/*
 *.sublime-project
+
 *.sublime-workspace
 test.py
 ravdess/
-.idea/
